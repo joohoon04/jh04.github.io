@@ -352,32 +352,32 @@ body {
 }
 
 .text-box[data-image="img1"]:hover {
-    background-image: url('/img/image\ 43.png');
+    background-image: url('/img/image 43.png');
 }
 
 .text-box[data-image="img2"]:hover {
-    background-image: url('/img/du\ \(5\).png');
+    background-image: url('/img/du (5).png');
 }
 
 /* 추가적인 이미지 박스 정의 */
 .text-box[data-image="img3"]:hover {
-    background-image: url('/img/image\ 45.png');
+    background-image: url('/img/image 45.png');
 }
 
 .text-box[data-image="img4"]:hover {
-    background-image: url('/img/image\ 42.png');
+    background-image: url('/img/image 42.png');
 }
 .text-box[data-image="img5"]:hover {
-    background-image: url('/img/image\ 45.png');
+    background-image: url('/img/image 45.png');
 }
 .text-box[data-image="img6"]:hover {
-    background-image: url('/img/image\ 44.png');
+    background-image: url('/img/image 44.png');
 }
 .text-box[data-image="img7"]:hover {
-    background-image: url('/img/image\ 40.png');
+    background-image: url('/img/image 40.png');
 }
 .text-box[data-image="img8"]:hover {
-    background-image: url('/img/image\ 41.png');
+    background-image: url('/img/image 41.png');
 }
 
 @keyframes scroll {
