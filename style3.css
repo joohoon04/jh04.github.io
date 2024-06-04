@@ -1,0 +1,835 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    font-family: 'Pretendard';
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* :root {
+    --font-min: 14px; /* 최소 폰트 크기 */
+    /* --font-max: 24px; 최대 폰트 크기
+} */
+
+@media (max-width: 768px) {
+    .header {
+        width: 95%;
+    }
+    
+    .nav {
+        margin-left: 0;
+        justify-content: space-around; /* 작은 화면에서 좀 더 넓은 간격으로 배치 */
+    }
+    
+    .title {
+        padding-left: 0;
+    }
+}
+body {
+    font-size: clamp(var(--font-min), 2vw, var(--font-max)); /* 반응형 폰트 크기 설정 */
+    font-family: 'Pretendard', Arial, sans-serif;
+    background-color: #050505;
+    color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+#cursor-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    pointer-events: none; /* 마우스 이벤트를 방지하여 마우스 커서 이미지가 클릭되지 않도록 함 */
+}
+
+.follower {
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.5s ease;    
+    opacity: 1;
+}
+
+.follower.fade-out {
+    opacity: 0;
+}
+
+.header {
+    display: flex;
+    font-size: 16px;
+    line-height: 86px;
+    margin: 10px 40px 25px 40px;
+    width: 1280px;
+    transition: all 0.3s ease-in-out; /* 부드러운 전환을 위해 추가 */
+}
+
+.nav {
+    display: flex;
+    font-size: 14px;
+    justify-content: flex-end;
+    line-height: 86px;
+    margin-left: 35%;
+    width: calc(1280px - 350px);
+}
+
+.nav > a {
+    margin: 0 0.7em;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-end;
+    line-height: 86px;
+    padding-left: 38%;
+    font-size: 16px;
+}
+
+.content {
+    margin-top: 150px; /* 헤더 높이만큼의 마진 추가 */
+    padding: 20px;
+}
+
+/* 스크롤 후 상태의 헤더 스타일 */
+.header.scrolled {
+    position: fixed; /* 고정 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #292929; /* 스크롤 시 배경색 */
+    margin: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000; /* 다른 요소들 위에 표시되도록 설정 */
+}
+
+.header.scrolled .nav {
+    width: auto;
+    margin-left: auto;
+}
+
+.text {
+    height: 500px;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 200px;
+}
+
+.text0 {
+    color: rgb(226, 226, 18);
+}
+
+.text0, .text1, .text2, .text3, .text4{
+    font-weight: 400;
+}
+
+.main_text0 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.text5 {
+    margin-right: 550px;
+}
+
+.text7 {
+    margin-left: 550px;
+}
+
+.main_content1 {
+    margin-top: 250px;
+    position: relative;
+}
+
+.main_text1 {
+    width: 800px;
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 125.4%; /* 29.856px */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -45%);
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+.main-text1{
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.main_content1 .video {
+    opacity: 1;
+    transition: opacity 1.8s ease;
+}
+
+.main_content1 .main_text1 {
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+
+.main_content1.scrolled .video {
+    opacity: 0.5;
+}
+
+.main_content1.scrolled .main_text1 {
+    opacity: 1;
+}
+
+.video {
+    position: relative;
+    width: 100vw;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.video1 {
+    position: relative;
+    width: 100vw;
+}
+
+.atk a {
+    color: #fff;
+}
+
+.atk {
+    font-size: 22px;
+    padding: 15px;
+    text-align: center;
+}
+
+.main_content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+}
+
+
+
+.main_content3 .video1 {
+    width: 97.5%;
+    height: 80%;
+    margin: 100px 0 0 20px;
+}
+
+.clear {
+    clear: left;
+}
+
+.main_content4 {
+    padding-top: 10%;
+}
+
+.main_text4 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.atk1 {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    padding-top: 3%;
+    font-size: 18px;
+}
+
+#box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+
+.box_img, .box_t2 {
+    width: 1316px;
+    max-width: 100%;
+    height: 724px;
+    margin: 20px 0;
+}
+
+.t1 {
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    /* padding: 20px; */
+}
+.t1-text {
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+}
+
+.t1-text1 {
+    font-size: 36px;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+}
+.t1-text2{
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 150%;
+}
+.t2 {
+    color: #fff;
+    text-align: left;
+    width: 100%;
+}
+
+.t2-text {
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+}
+
+.t2-text1 {
+    display: block;
+    text-align: left;
+    font-size: 36px;
+    font-weight: bold;
+}
+.t2-text2{
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 150%;
+}
+
+.main_content5{
+    margin-top: 20%;
+}
+.main_text5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+.cover {
+    display: flex;
+    overflow: hidden;
+    width: 100%; /* 부모 요소의 너비를 차지하도록 설정 */
+    margin: 10px 0;
+}
+.text-box {
+    width: 280px;
+    height: 76px;
+    display: inline-block;
+    font-size: 24px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000000;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.text-box:hover {
+    color: transparent; /* 텍스트를 보이지 않게 함 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-box[data-image="img1"]:hover {
+    background-image: url('/img/image\ 43.png');
+}
+
+.text-box[data-image="img2"]:hover {
+    background-image: url('/img/du\ \(5\).png');
+}
+
+/* 추가적인 이미지 박스 정의 */
+.text-box[data-image="img3"]:hover {
+    background-image: url('/img/image\ 45.png');
+}
+
+.text-box[data-image="img4"]:hover {
+    background-image: url('/img/image\ 42.png');
+}
+.text-box[data-image="img5"]:hover {
+    background-image: url('/img/image\ 45.png');
+}
+.text-box[data-image="img6"]:hover {
+    background-image: url('/img/image\ 44.png');
+}
+.text-box[data-image="img7"]:hover {
+    background-image: url('/img/image\ 40.png');
+}
+.text-box[data-image="img8"]:hover {
+    background-image: url('/img/image\ 41.png');
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.dmsdj{
+    margin-left: 10%;
+    font-size: 32px;
+    font-weight: 700;
+}
+.dmsdj span{
+    padding-left: 1%;
+    font-size: 14px;
+}
+
+
+
+.main-text5 {
+    margin-top: 5%;
+    /* text-align: center; */
+    font-size: 16px;
+}
+/* 
+.center-text{
+    display: inline-block;
+    text-align: left;
+} */
+
+.main-1, .main-2, .main-3, .main-4, .main-5, .main-6{
+    line-height: 3;
+    padding-left: 20%;
+} 
+.main-8{
+    display: block; 
+    line-height: 1.5; 
+    line-height: 300px;
+    padding-left: 20%;
+}
+.no-drug {
+    padding-left: 20%;
+    margin-top: 5px;
+    text-align: left;
+}
+
+
+.footer {
+    top: 100%;
+    text-align: center;
+}
+
+.footer_text {
+    font-size: 9rem;
+    font-weight: bolder;
+}
+
+
+
+
+.screen {
+    /* display: flex;
+    justify-content: center; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-10%, 15%);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .screen .div {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+  }
+  
+  .screen .overlap {
+    position: absolute;
+    width: 152px;
+    height: 56px;
+    top: 713px;
+    left: 884px;
+  }
+  
+  .text-wrapper {
+    width: 152px;
+    height: 56px;
+    top: 713px;
+    left: 884px;
+    border-radius: 40px;
+    font-weight: 700;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  .screen .rectangle {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 919px;
+    left: 768px;
+    border: 1px solid;
+    border-color: #ffffff;
+  }
+  .check{
+    position: absolute;
+    width: 459px;
+    height: 59px;
+    top: 919px;
+    left: 768px;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  input[class="check"] + label {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+}
+
+/* 체크박스 꾸미기 - 활성화 */
+input[class="check"]:checked + label {
+    background-image:url("img/1.png");
+    background-size: 100%;
+    border: 1px solid #fff;
+}
+
+/* input 안보이게 */
+.check{
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 919px;
+    left: 768px;
+    /* clip: rect(10 10 10 5); */
+    /* overflow: hidden; */
+}
+
+
+.screen .overlap-group,
+.screen .overlap-2 {
+    position: absolute;
+    width: 396px;
+    height: 46px;
+    z-index: 1; /* 입력란이 다른 요소에 가려지지 않도록 설정 */
+}
+
+.screen .overlap-group {
+    top: 300px;
+    left: 762px;
+}
+
+.screen .rectangle-2,
+.screen .rectangle-3 {
+    position: absolute;
+    width: 400px;
+    height: 5px;
+    top: 38px;
+    left: 0;
+    background-color: #d9d9d9;
+}
+
+.screen .text-wrapper-2 {
+    position: absolute;
+    width: 227px;
+    height: 39px;
+    top: 0;
+    left: 84px;
+    font-weight: 400;
+    color: #cbcbcb;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.screen .overlap-2 {
+    top: 584px;
+    left: 762px;
+}
+
+.input-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2; /* 텍스트와 박스 위에 나타나도록 설정 */
+    border: none;
+    background: none;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+  
+  .screen .p {
+    width: 343px;
+    height: 44px;
+    top: 918px;
+    left: 796px;
+    text-align: left;
+    font-weight: 400;
+    color: #cbcbcb;
+    font-size: 13px;
+    letter-spacing: 0;
+    position: absolute;
+    line-height: normal;
+  }
+
+  .screen .NO-DOPE {
+    position: absolute;
+    width: 357px;
+    height: 176px;
+    top: 377px;
+    left: 782px;
+    font-weight: 400;
+    color: #cbcbcb;
+    font-size: 47px;
+    text-align: center;
+    letter-spacing: -1.41px;
+    line-height: 39px;
+  }
+  
+  .screen .span {
+    letter-spacing: -0.66px;
+    font-family: "Super Festival";
+    color: #FFF;
+    text-align: center;
+    font-size: 2.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.4375rem;
+    /* 82.979% */
+    letter-spacing: -0.08813rem;
+  }
+  
+  .screen .text-wrapper-4 {
+    color: #FFF;
+    font-family: "Super Festival";
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -1.14px;
+  }
+  
+  .screen .text-wrapper-5 {
+    color: #FFF;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -1.14px;
+  }
+  
+  .screen .text-wrapper-6 {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: -1.14px;
+  }
+  
+  .screen .ellipse {
+    left: 1131px;
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    top: 637px;
+    border-radius: 18.5px;
+  }
+  
+  .screen .ellipse-2 {
+    left: 762px;
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    top: 637px;
+    background-color: #d9d9d9;
+    border-radius: 18.5px;
+  }
+
+
+
+
+/* bottom, footer_content */
+
+.bottom {
+    padding-top: 8%;
+}
+
+.bottom a {
+    color: #fff;
+}
+
+.bottom .footer_main {
+    font-size: 25px;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.footer_content {
+    display: flex;
+}
+
+.footer_content li {
+    font-size: 12px;
+}
+
+.bottom .footer_center {
+    margin-left: 35%;
+}
+
+.bottom .footer_right {
+    margin-left: 10%;
+}
+
+.bottom .footer_left {
+    margin-left: 10%;
+}
+
+.line {
+    display: block;
+    margin-left: 30%;
+}
+.line2{
+    margin-left: 30%;
+    margin-top: 10%;
+    display: block;
+}
+.ul-line{
+    margin-left: 60%;
+    width: 300px;
+}
+.li-1, .li-2{
+    margin-bottom: 5%;
+    font-size: 12px;
+}
+
+
+.bottom .footer_center a {
+    display: block;
+}
+
+.bottom .footer_right a {
+    display: block;
+}
+
+.bottom .footer_left a {
+    display: block;
+}
+
+.end {
+    padding: 0;
+    margin: 3% 0 0 0;
+}
+
+
+.footer_bottom {
+    padding-top: 5%;
+    margin-left: 2%;
+}
+#footer_bottom{
+    margin-left: 2%;
+    font-size: 25px;
+    text-align: left;
+}
+
+#left {
+    margin-left: 57%;
+    padding-bottom: 0.5%;
+    font-size: 1.5rem;
+}
+#left2{
+    margin-left: 57%;
+    padding-bottom: 5%;
+    font-size: 0.8rem;
+}
+#end-li1{
+    display: block;
+    margin-left: 14%;
+    font-size: 10px;
+}
+#end-li2{
+    margin-left: 14%;
+    font-size: 10px;
+}
+
+
+.random-font {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    font-family: "Super Festival";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(var(--random-x), var(--random-y)); }
+}
+
+.animate {
+    animation: move 2s infinite alternate;
+}
+
+/* 반응형 폰트 사이즈 */
+h1 {
+    font-size: clamp(24px, 5vw, 60px); /* 반응형 h1 폰트 크기 설정 */
+}
+
+h2 {
+    font-size: clamp(20px, 4vw, 48px); /* 반응형 h2 폰트 크기 설정 */
+}
+
+p {
+    font-size: clamp(var(--font-min), 2vw, var(--font-max)); /* 반응형 본문 폰트 크기 설정 */
+}
+
+
+/* Media Queries for further customizations */
+@media (max-width: 768px) {
+    .header {
+        width: 95%;
+    }
+    
+    .nav {
+        margin-left: 0;
+        justify-content: space-around;
+    }
+    
+    .title {
+        padding-left: 0;
+    }
+
+    .main_text1 {
+        font-size: clamp(18px, 3.5vw, 35px); /* 모바일 화면 폰트 크기 조정 */
+    }
+
+    .main_text4 {
+        font-size: clamp(22px, 4.5vw, 40px); /* 모바일 화면 폰트 크기 조정 */
+    }
+}
