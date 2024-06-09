@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pTag1 = document.querySelector('.first-parallel');
-    const pTag2 = document.querySelector('.second-parallel');
     const textArr1 = [
         { text: '허브', image: 'img1' },
         { text: '떨', image: 'img2' },
@@ -9,9 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { text: '얼음', image: 'img5' },
         { text: '물건', image: 'img6' },
         { text: '필로폰', image: 'img7' },
-        { text: '대마', image: 'img8' }
-    ];
-    const textArr2 = [
+        { text: '대마', image: 'img8' },
         { text: 'Herb', image: 'img1' },
         { text: 'shaking', image: 'img2' },
         { text: 'ice', image: 'img3' },
@@ -33,9 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (pTag1 && pTag2) {
+    if (pTag1) {
         initTexts(pTag1, textArr1);
-        initTexts(pTag2, textArr2);
     }
 
     function animateText(element, direction) {
@@ -53,35 +49,34 @@ document.addEventListener("DOMContentLoaded", () => {
         marquee();
     }
 
-    if (pTag1 && pTag2) {
-        animateText(pTag1, 1);
-        animateText(pTag2, -1);
+    if (pTag1) {
+        animateText(pTag1, 2);
     }
 });
 
 
 
-    const fonts = ["Arial", "Verdana", "Times New Roman", "Courier New", "Georgia", "Palatino", "Garamond", "Comic Sans MS", "Trebuchet MS"];
+    // const fonts = ["Arial", "Verdana", "Times New Roman", "Courier New", "Georgia", "Palatino", "Garamond", "Comic Sans MS", "Trebuchet MS"];
 
-    function getRandomFont() {
-        return fonts[Math.floor(Math.random() * fonts.length)];
-    }
+    // function getRandomFont() {
+    //     return fonts[Math.floor(Math.random() * fonts.length)];
+    // }
     
-    function applyRandomFonts() {
-        const spanSelectors = [
-            '.main span.random-font' // random-font 클래스가 적용된 span 요소만 선택
-        ];
+    // function applyRandomFonts() {
+    //     const spanSelectors = [
+    //         '.main span.random-font' // random-font 클래스가 적용된 span 요소만 선택
+    //     ];
     
-        spanSelectors.forEach(selector => {
-            const spans = document.querySelectorAll(selector);
-            spans.forEach(span => {
-                span.style.fontFamily = getRandomFont();
-            });
-        });
-    }
+    //     spanSelectors.forEach(selector => {
+    //         const spans = document.querySelectorAll(selector);
+    //         spans.forEach(span => {
+    //             span.style.fontFamily = getRandomFont();
+    //         });
+    //     });
+    // }
     
-    applyRandomFonts();
-    setInterval(applyRandomFonts, 1500); // 3초
+    // applyRandomFonts();
+    // setInterval(applyRandomFonts, 1500); // 3초
     
 
     const observerOptions = {
@@ -130,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const imageCreationProbability = 0.15;
 
+    
     function handleMouseMove(event) {
         const cursorArea = document.querySelector('.web');
         const header = document.querySelector('.header');
@@ -167,21 +163,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (webArea) {
         webArea.addEventListener('mousemove', handleMouseMove);
     }
+    const elements = document.querySelectorAll('.main_text2 > #box');
+    let currentIndex = 0;
+    
+    //뉴스 기사 2개를 한 개의 섹션으로 만들어 번갈아가면 5초동안 보여줌
+// function toggleElements() {
+//     elements[currentIndex].style.display = 'none';
+//     currentIndex = (currentIndex + 1) % elements.length;
+//     elements[currentIndex].style.display = 'block';
+// }
 
-const elements = document.querySelectorAll('.main_text2 > #box');
-let currentIndex = 0;
+// // 최초에 한 번 실행
+// toggleElements();
 
-function toggleElements() {
-    elements[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex + 1) % elements.length;
-    elements[currentIndex].style.display = 'block';
-}
-
-// 최초에 한 번 실행
-toggleElements();
-
-// 5초마다 토글
-setInterval(toggleElements, 5000);
+// // 5초마다 토글
+// setInterval(toggleElements, 5000);
 
 document.addEventListener("DOMContentLoaded", () => {
     // 이미 적용된 이벤트 핸들러들입니다.
@@ -227,6 +223,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// 뉴스 
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll("section[id^='section']"); // id 속성이 'section'으로 시작하는 모든 섹션을 선택합니다.
 
+    // 각 섹션에 대한 클릭 이벤트를 추가합니다.
+    sections.forEach(section => {
+        section.addEventListener("click", () => {
+            const iframe = document.querySelector("#player iframe"); // iframe 요소를 선택합니다.
+            const topLine = document.querySelector(".top-line"); // top-line 요소를 선택합니다.
+            const bottomLine = document.querySelector(".bottom-line"); // bottom-line 요소를 선택합니다.
 
+            // 선택한 섹션에 맞게 iframe의 src를 설정합니다.
+            if (section.id === 'section1') {
+                iframe.src = "https://www.youtube.com/embed/heImz-mkwo8?si=gZKz52pgkUUn2W1M";
+            } else if (section.id === 'section2') {
+                iframe.src = "https://www.youtube.com/embed/dYMJuUcNG14?si=WUhnBjfqDgn-dhwE";
+            } else if (section.id === 'section3') {
+                iframe.src = "https://www.youtube.com/embed/OuGb_VjApQ0?si=dClryk7Eg9ZtxYBV";
+            }
+
+            // 다른 섹션들을 숨깁니다.
+            sections.forEach(s => {
+                if (s !== section) {
+                    s.classList.remove('active');
+                }
+            });
+
+            // 현재 클릭된 섹션을 활성화합니다.
+            section.classList.add('active');
+
+            // top-line과 bottom-line의 위치를 조정합니다.
+            // const sectionIndex = Array.from(sections).indexOf(section);
+            // const lineHeight = 30; // 원하는 추가적인 간격을 설정합니다.
+            // const totalOffset = (sectionIndex + 1) * lineHeight;
+            // topLine.style.top = (281 + totalOffset) + "px";
+            // bottomLine.style.top = (558 + totalOffset) + "px";
+        });
+    });
+});
 

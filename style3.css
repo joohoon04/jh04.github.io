@@ -112,6 +112,11 @@ body {
     margin-left: auto;
 }
 
+.video-font{
+    width: 100%;
+    height: 100%;
+}
+
 .text {
     height: 500px;
     text-align: center;
@@ -302,9 +307,9 @@ body {
 }
 
 .t2-text1 {
+    font-size: 36px;
     display: block;
     text-align: left;
-    font-size: 36px;
     font-weight: bold;
 }
 .t2-text2{
@@ -315,6 +320,7 @@ body {
 
 .main_content5{
     margin-top: 20%;
+    height: 50%;
 }
 .main_text5 {
     display: flex;
@@ -327,21 +333,25 @@ body {
     display: flex;
     overflow: hidden;
     width: 100%; /* 부모 요소의 너비를 차지하도록 설정 */
+    height: 50%;
     margin: 10px 0;
 }
+.first-parallel {
+    white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
+}
 .text-box {
-    width: 280px;
-    height: 76px;
-    display: inline-block;
-    font-size: 24px;
+    width: 200px;
+    height: 150px;
     text-align: center;
     white-space: nowrap;
-    padding: 10px 20px;
     background-color: #fff;
     color: #000000;
-    margin: 0 10px;
     transition: all 0.3s ease;
     border-radius: 50px;
+    font-size: 1.5em; /* 글자 크기를 키움 */
+    padding: 5px 10px; /* 텍스트 박스 안에 여백 추가 */
+    margin: 0 15px; /* 텍스트 박스 사이에 여백 추가 */
+    display: inline-block; /* 요소를 인라인 블록으로 설정 */
 }
 
 .text-box:hover {
@@ -391,6 +401,7 @@ body {
 
 
 .dmsdj{
+    bottom: 50px;
     margin-left: 10%;
     font-size: 32px;
     font-weight: 700;
@@ -470,8 +481,8 @@ body {
   .text-wrapper {
     width: 152px;
     height: 56px;
-    top: 713px;
-    left: 884px;
+    /* top: 713px;
+    left: 884px; */
     border-radius: 40px;
     font-weight: 700;
     color: #000000;
@@ -676,7 +687,7 @@ input[class="check"]:checked + label {
 /* bottom, footer_content */
 
 .bottom {
-    padding-top: 8%;
+    padding-top: 20%;
 }
 
 .bottom a {
@@ -757,7 +768,7 @@ input[class="check"]:checked + label {
 }
 
 #left {
-    margin-left: 57%;
+    margin-left: 52.5%;
     padding-bottom: 0.5%;
     font-size: 1.5rem;
 }
@@ -833,3 +844,271 @@ p {
         font-size: clamp(22px, 4.5vw, 40px); /* 모바일 화면 폰트 크기 조정 */
     }
 }
+
+
+/* main-rectangle 코드 */
+.tlqkf{
+    position: relative;
+    width: 100%;
+    height: 769px;
+    top: 100px;
+}
+.main-rectangle {
+    position: absolute;
+    width: 980px;
+    height: 580px;
+    top: 43px;
+    left: 1%;
+    background-color: #ff0000;
+}
+
+.horizontal-line {
+    position: absolute;
+    width: 457px;
+    height: 1px;
+    background-color: #3d3d3d;
+}
+.top-line {
+    top: 281px;
+    left: 1014px;
+}
+
+.bottom-line {
+    top: 558px;
+    left: 1014px;
+}
+
+.text-box1 {
+    position: absolute;
+    width: 457px;
+    height: 43px;
+    overflow: hidden;
+}
+
+.text-box-1 {
+    top: 348px;
+    left: 1014px;
+}
+.text-box-2 {
+    top: 424px;
+    left: 1014px;
+}
+
+.text-group {
+    position: relative;
+    width: 461px;
+    height: 43px;
+}
+
+.headline {
+    position: absolute;
+    width: 457px;
+    top: 16px;
+    left: 0;
+    font-size: 22.2px;
+    font-weight: 900;
+    color: transparent;
+    letter-spacing: -0.22px;
+}
+
+.text-white, .span {
+    color: #ffffff;
+    letter-spacing: 0.05px;
+}
+
+.text-red {
+    color: #e83831;
+    letter-spacing: 0.05px;
+}
+
+.subtext {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 13.6px;
+    white-space: nowrap;
+}
+
+.detailed-text-box {
+    position: absolute;
+    width: 457px;
+    height: 272px;
+    top: 43px;
+    left: 1014px;
+    overflow: hidden;
+}
+
+.detailed-text-content {
+    position: relative;
+    width: 465px;
+    height: 252px;
+}
+
+.detailed-text {
+    position: absolute;
+    width: 457px;
+    top: 58px;
+    left: 0;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 12.3px;
+    text-align: justify;
+    letter-spacing: 0.25px;
+    line-height: 21.3px;
+}
+
+.sbs-link {
+    position: absolute;
+    width: 457px;
+    top: 208px;
+    left: 0;
+    font-weight: 300;
+    color: #e83831;
+    font-size: 11.7px;
+    text-align: justify;
+    letter-spacing: 0.23px;
+    line-height: 21.3px;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+.text-highlight {
+    position: absolute;
+    width: 457px;
+    height: 46px;
+    top: 0;
+    left: 0;
+}
+
+/* view두번째 기사 */
+.view {
+    position: absolute;
+    width: 457px;
+    height: 272px;
+    top: 300px;
+    left: 1014px;
+    overflow: hidden;
+  }
+  .view-wrapper {
+    position: relative;
+    height: 231px;
+    top: -1px;
+  }
+  .view-2 {
+    position: relative;
+    width: 465px;
+    height: 231px;
+  }
+  .text-wrapper2 {
+    top: 53px;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 12.3px;
+    text-align: justify;
+    letter-spacing: 0.25px;
+    line-height: 21.3px;
+    position: absolute;
+    width: 457px;
+    left: 0;
+  }
+  .p1 {
+    position: absolute;
+    width: 457px;
+    top: 230px;
+    left: 0;
+    font-family: "Pretendard-Light", Helvetica;
+    font-weight: 300;
+    color: #e83831;
+    font-size: 11.7px;
+    text-align: justify;
+    letter-spacing: 0.23px;
+    line-height: 21.3px;
+    text-decoration: underline;
+  }
+  .element {
+    top: 16px;
+    font-weight: 900;
+    color: transparent;
+    font-size: 22.2px;
+    letter-spacing: -0.22px;
+    line-height: normal;
+    position: absolute;
+    width: 457px;
+    left: 0;
+  }
+  
+  .text-wrapper-3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 13.6px;
+    white-space: nowrap;
+  }
+
+  /* 3번째 기사 */
+  .view1{
+    position: absolute;
+    width: 457px;
+    height: 272px;
+    top: 575px;
+    left: 1014px;
+    overflow: hidden;
+  }
+  .view1-1{
+    position: relative;
+    width: 465px;
+    height: 231px;;
+  }
+  .group {
+    position: relative;
+    width: 465px;
+    height: 231px;
+  }
+  .text-wrapper3 {
+    top: 53px;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 12.3px;
+    text-align: justify;
+    letter-spacing: 0.25px;
+    line-height: 21.3px;
+    position: absolute;
+    width: 457px;
+    left: 0;
+  }
+  .element2 {
+    width: 454px;
+    top: 16px;
+    font-family: "Pretendard-Black", Helvetica;
+    font-weight: 900;
+    color: transparent;
+    font-size: 22.2px;
+    letter-spacing: -0.22px;
+    line-height: normal;
+    position: absolute;
+    left: 0;
+  }
+
+  /* section */
+  .section {
+    display: block; /* 기본적으로 섹션들을 보이도록 설정합니다. */
+    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능하도록 설정합니다. */
+}
+
+/* 
+.section1.open {
+    display: block;
+}
+
+.section2.open {
+    display: block;
+}
+
+.section3.open {
+    display: block;
+} */
