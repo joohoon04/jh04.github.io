@@ -263,3 +263,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.querySelectorAll('.headline, .element, .element2').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordionContent = button.nextElementSibling;
+
+        button.classList.toggle('active');
+
+        if (button.classList.contains('active')) {
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+        } else {
+            accordionContent.style.maxHeight = '0';
+        }
+
+        // Close other accordion items
+        document.querySelectorAll('.headline, .element, .element2').forEach(otherButton => {
+            if (otherButton !== button) {
+                otherButton.classList.remove('active');
+                otherButton.nextElementSibling.style.maxHeight = '0';
+            }
+        });
+    });
+});

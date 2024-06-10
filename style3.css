@@ -69,7 +69,7 @@ body {
 .nav {
     display: flex;
     font-size: 14px;
-    justify-content: flex-end;
+    justify-content: center;
     line-height: 86px;
     margin-left: 35%;
     width: calc(1280px - 350px);
@@ -84,8 +84,8 @@ body {
 .title {
     display: flex;
     justify-content: flex-end;
-    line-height: 86px;
-    padding-left: 38%;
+    margin-top: 10px;
+    padding-left: 32%;
     font-size: 16px;
 }
 
@@ -206,7 +206,7 @@ body {
     width: 100vw;
 }
 
-.atk a {
+/* .atk a {
     color: #fff;
 }
 
@@ -214,15 +214,15 @@ body {
     font-size: 22px;
     padding: 15px;
     text-align: center;
-}
+} */
 
-.main_content2 {
+/* .main_content2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 15%;
 }
-
+ */
 
 
 .main_content3 .video1 {
@@ -245,14 +245,14 @@ body {
     font-weight: 400;
 }
 
-.atk1 {
+/* .atk1 {
     color: #ffffff;
     display: flex;
     justify-content: center;
     text-decoration: underline;
     padding-top: 3%;
     font-size: 18px;
-}
+} */
 
 #box {
     display: flex;
@@ -416,7 +416,7 @@ body {
 .main-text5 {
     margin-top: 5%;
     /* text-align: center; */
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 /* 
 .center-text{
@@ -427,12 +427,19 @@ body {
 .main-1, .main-2, .main-3, .main-4, .main-5, .main-6{
     line-height: 3;
     padding-left: 20%;
+    font-size: 18px;
+    font-weight: 300;
 } 
+d{
+    font-weight: 700;
+}
 .main-8{
     display: block; 
     line-height: 1.5; 
     line-height: 300px;
     padding-left: 20%;
+    font-size: 20px;
+    font-weight: 700;
 }
 .no-drug {
     padding-left: 20%;
@@ -692,6 +699,7 @@ input[class="check"]:checked + label {
 
 .bottom a {
     color: #fff;
+    margin-top: 5px;
 }
 
 .bottom .footer_main {
@@ -702,10 +710,17 @@ input[class="check"]:checked + label {
 
 .footer_content {
     display: flex;
+    flex-direction: column;
 }
 
 .footer_content li {
     font-size: 12px;
+}
+
+.bottom .footer_center, .bottom .footer_right, .bottom .footer_left {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top; /* 수직 정렬 */
 }
 
 .bottom .footer_center {
@@ -722,16 +737,16 @@ input[class="check"]:checked + label {
 
 .line {
     display: block;
-    margin-left: 30%;
+    margin-left: 10%;
 }
 .line2{
-    margin-left: 30%;
-    margin-top: 10%;
+    margin-left: 11.5%;
+    font-size: 25px;
     display: block;
 }
 .ul-line{
-    margin-left: 60%;
-    width: 300px;
+    margin-left: 17%;
+    width: 400px;
 }
 .li-1, .li-2{
     margin-bottom: 5%;
@@ -739,16 +754,14 @@ input[class="check"]:checked + label {
 }
 
 
-.bottom .footer_center a {
+.bottom .footer_center a, .bottom .footer_right a, .bottom .footer_left a {
     display: block;
 }
 
-.bottom .footer_right a {
-    display: block;
-}
-
-.bottom .footer_left a {
-    display: block;
+.team-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* 섹션 간 여백 추가 */
 }
 
 .end {
@@ -768,7 +781,7 @@ input[class="check"]:checked + label {
 }
 
 #left {
-    margin-left: 52.5%;
+    margin-left: 48%;
     padding-bottom: 0.5%;
     font-size: 1.5rem;
 }
@@ -905,10 +918,21 @@ p {
     width: 457px;
     top: 16px;
     left: 0;
+    border: none;
+    outline: none;
     font-size: 22.2px;
     font-weight: 900;
     color: transparent;
     letter-spacing: -0.22px;
+}
+.headline:hover,
+.element:hover,
+.element2:hover,
+.headline:active,
+.element:active,
+.element2:active
+{
+    background-color: #000000;
 }
 
 .text-white, .span {
