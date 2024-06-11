@@ -1,83 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const pTag1 = document.querySelector('.first-parallel');
-    const textArr1 = [
-        { text: '허브', image: 'img1' },
-        { text: '떨', image: 'img2' },
-        { text: '아이스', image: 'img3' },
-        { text: '고기', image: 'img4' },
-        { text: '얼음', image: 'img5' },
-        { text: '물건', image: 'img6' },
-        { text: '필로폰', image: 'img7' },
-        { text: '대마', image: 'img8' },
-        { text: 'Herb', image: 'img1' },
-        { text: 'shaking', image: 'img2' },
-        { text: 'ice', image: 'img3' },
-        { text: 'meat', image: 'img4' },
-        { text: 'ice', image: 'img5' },
-        { text: 'thing', image: 'img6' },
-        { text: 'Philopon', image: 'img7' },
-        { text: 'hemp', image: 'img8' }
-    ];
-
-    function initTexts(element, textArray) {
-        textArray.push(...textArray);  // 배열을 두 번 반복하여 결합
-        for (let i = 0; i < textArray.length; i++) {
-            const span = document.createElement('span');
-            span.className = 'text-box';
-            span.innerText = textArray[i].text;
-            span.setAttribute('data-image', textArray[i].image);
-            element.appendChild(span);
-        }
-    }
-
-    if (pTag1) {
-        initTexts(pTag1, textArr1);
-    }
-
-    function animateText(element, direction) {
-        let count = 0;
-        function marquee() {
-            count += direction;
-            if (count > element.scrollWidth / 2) {
-                element.style.transform = 'translateX(0)';
-                count = 0;
-            } else {
-                element.style.transform = `translateX(${count * -1}px)`;
-            }
-            requestAnimationFrame(marquee);
-        }
-        marquee();
-    }
-
-    if (pTag1) {
-        animateText(pTag1, 2);
-    }
-});
 
 
-
-    // const fonts = ["Arial", "Verdana", "Times New Roman", "Courier New", "Georgia", "Palatino", "Garamond", "Comic Sans MS", "Trebuchet MS"];
-
-    // function getRandomFont() {
-    //     return fonts[Math.floor(Math.random() * fonts.length)];
-    // }
-    
-    // function applyRandomFonts() {
-    //     const spanSelectors = [
-    //         '.main span.random-font' // random-font 클래스가 적용된 span 요소만 선택
-    //     ];
-    
-    //     spanSelectors.forEach(selector => {
-    //         const spans = document.querySelectorAll(selector);
-    //         spans.forEach(span => {
-    //             span.style.fontFamily = getRandomFont();
-    //         });
-    //     });
-    // }
-    
-    // applyRandomFonts();
-    // setInterval(applyRandomFonts, 1500); // 3초
-    
 
     const observerOptions = {
         root: null,
@@ -96,36 +18,36 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const mainContent1 = document.querySelector('.main_content1');
-
+    const mainContent1 = document.querySelector('.main_content1, .main_content3');
+    
     if (mainContent1) {
         observer.observe(mainContent1);
     }
+    
 
     const images = [
-        'img/du (1).png',
-        'img/du (2).png',
-        'img/du (3).png',
-        'img/du (4).png',
-        'img/du (5).png',
-        'img/du (6).png',
-        'img/du (7).png',
-        'img/du (8).png',
-        'img/du (9).png',
+        'img/1 (1).png',
+        'img/1 (2).png',
+        'img/1 (3).png',
+        'img/1 (4).png',
+        'img/1 (5).png',
+        'img/1 (6).png',
+        'img/1 (7).png',
+        'img/1 (8).png'
     ];
-
+    
     function getRandomImage() {
         const randomIndex = Math.floor(Math.random() * images.length);
         return images[randomIndex];
     }
-
-    function getRandomSize() {
-        return Math.floor(Math.random() * 300) + 50; // 300px ~ 50px 사이의 크기
-    }
-
-    const imageCreationProbability = 0.15;
-
     
+    function getRandomSize() {
+        return Math.floor(Math.random() * 150) + 50; // 50px ~ 350px 사이의 크기
+    }
+    
+
+    const imageCreationProbability = 0.18;
+
     function handleMouseMove(event) {
         const cursorArea = document.querySelector('.web');
         const header = document.querySelector('.header');
@@ -141,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const follower = document.createElement('img');
                 follower.src = getRandomImage();
                 follower.className = 'follower';
-
+    
                 const size = getRandomSize();
                 follower.style.width = `${size}px`;
                 follower.style.height = `${size}px`;
@@ -149,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 follower.style.left = `${event.clientX - size / 2}px`;
                 follower.style.top = `${event.clientY - size / 2}px`;
                 follower.style.pointerEvents = 'none';
-
+    
                 document.body.appendChild(follower);
-
+    
                 setTimeout(() => {
                     follower.remove();
                 }, 900);
@@ -159,25 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const webArea = document.querySelector('.web');
-    if (webArea) {
-        webArea.addEventListener('mousemove', handleMouseMove);
-    }
-    const elements = document.querySelectorAll('.main_text2 > #box');
-    let currentIndex = 0;
-    
-    //뉴스 기사 2개를 한 개의 섹션으로 만들어 번갈아가면 5초동안 보여줌
-// function toggleElements() {
-//     elements[currentIndex].style.display = 'none';
-//     currentIndex = (currentIndex + 1) % elements.length;
-//     elements[currentIndex].style.display = 'block';
-// }
-
-// // 최초에 한 번 실행
-// toggleElements();
-
-// // 5초마다 토글
-// setInterval(toggleElements, 5000);
+    document.addEventListener('mousemove', handleMouseMove);    
+    // 영상 끝나면 박스 형태 보이도록
+    document.addEventListener('DOMContentLoaded', function () {
+        var video = document.querySelector('.myVideo');
+        var imageBoxes = document.querySelector('.image-boxes');
+        var videoContainer = document.querySelector('.video-container');
+        
+        video.onended = function () {
+        videoContainer.style.display = 'none';
+        imageBoxes.classList.remove('hidden');
+        };
+        });
 
 document.addEventListener("DOMContentLoaded", () => {
     // 이미 적용된 이벤트 핸들러들입니다.
@@ -215,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) { // 스크롤 위치가 300px을 넘으면
+        if (window.scrollY > 10) { // 스크롤 위치가 10px을 넘으면
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
@@ -231,8 +146,6 @@ document.addEventListener("DOMContentLoaded", function() {
     sections.forEach(section => {
         section.addEventListener("click", () => {
             const iframe = document.querySelector("#player iframe"); // iframe 요소를 선택합니다.
-            const topLine = document.querySelector(".top-line"); // top-line 요소를 선택합니다.
-            const bottomLine = document.querySelector(".bottom-line"); // bottom-line 요소를 선택합니다.
 
             // 선택한 섹션에 맞게 iframe의 src를 설정합니다.
             if (section.id === 'section1') {
@@ -242,41 +155,21 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (section.id === 'section3') {
                 iframe.src = "https://www.youtube.com/embed/OuGb_VjApQ0?si=dClryk7Eg9ZtxYBV";
             }
-
-            // 다른 섹션들을 숨깁니다.
-            sections.forEach(s => {
-                if (s !== section) {
-                    s.classList.remove('active');
-                }
-            });
-
-            // 현재 클릭된 섹션을 활성화합니다.
-            section.classList.add('active');
-
-            // top-line과 bottom-line의 위치를 조정합니다.
-            // const sectionIndex = Array.from(sections).indexOf(section);
-            // const lineHeight = 30; // 원하는 추가적인 간격을 설정합니다.
-            // const totalOffset = (sectionIndex + 1) * lineHeight;
-            // topLine.style.top = (281 + totalOffset) + "px";
-            // bottomLine.style.top = (558 + totalOffset) + "px";
         });
     });
 });
 
-document.querySelectorAll('.headline, .element, .element2').forEach(button => {
+document.querySelectorAll('.accordion-button').forEach(button => {
     button.addEventListener('click', () => {
         const accordionContent = button.nextElementSibling;
-
         button.classList.toggle('active');
-
         if (button.classList.contains('active')) {
             accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
         } else {
             accordionContent.style.maxHeight = '0';
         }
-
         // Close other accordion items
-        document.querySelectorAll('.headline, .element, .element2').forEach(otherButton => {
+        document.querySelectorAll('.accordion-button').forEach(otherButton => {
             if (otherButton !== button) {
                 otherButton.classList.remove('active');
                 otherButton.nextElementSibling.style.maxHeight = '0';
@@ -284,3 +177,51 @@ document.querySelectorAll('.headline, .element, .element2').forEach(button => {
         });
     });
 });
+
+// Intersection Observer 설정
+const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const video = entry.target.querySelector('video');
+        if (entry.isIntersecting) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+}, {
+    threshold: 0.5 // 요소의 50%가 보일 때 트리거
+});
+const mainContent3 = document.querySelector('.main_content3');
+if (mainContent3) {
+    videoObserver.observe(mainContent3);
+const fullscreenBtn = mainContent3.querySelector('.fullscreen-btn');
+    const video = mainContent3.querySelector('video');
+    
+    fullscreenBtn.addEventListener('click', () => {
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) { // Firefox
+            video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) { // IE/Edge
+            video.msRequestFullscreen();
+        }
+    });
+}
+
+document.getElementById('instagramForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 폼 제출 방지
+
+    // 여기서 폼 데이터를 처리합니다. 예를 들어, 서버로 데이터를 보낼 수 있습니다.
+    // ...
+
+    // 알림 표시
+    var notification = document.getElementById('notification');
+    notification.style.display = 'block';
+
+    // 3초 후에 알림 숨기기
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 5000);
+});//인스타 폼 처럼 보내기
