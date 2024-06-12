@@ -179,8 +179,13 @@ transition: all 0.3s ease-in-out; /* 부드러운 전환을 위해 추가 */
     transition: opacity 1.8s ease;
 }
 .main_text1 p{
-    width: 750px;
+    width: 1200px;
     height: auto;
+    margin-left: -25%;
+    line-height: 40px;
+}
+.line-height{
+    line-height: 70px;
 }
 .main-text1{
     color: #FFF;
