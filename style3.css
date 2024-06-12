@@ -581,7 +581,7 @@ input[class="check"]:checked + label {
     padding: 50px;
     position: fixed;
     bottom: 550px;
-    right: 590px;
+    right: 570px;
     font-size: 24px;
     font-family: "Pretendard";
     z-index: 1000;
