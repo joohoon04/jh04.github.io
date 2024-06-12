@@ -809,10 +809,10 @@ p {
 }
 .accordion-button:hover,
 .accordion-button.active {
-    background-color: #141e19;
+    background-color: #1e1a14;
 }
 .accordion-content {
-    background-color: #141e19;
+    background-color: #1e1914;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
@@ -831,7 +831,7 @@ p {
     top: 0;
     width: 480px;
     height: 1px;
-    background-color: #ADC442;
+    background-color: #dd8e40;
 }
 
 
