@@ -1,101 +1,108 @@
+// 스크롤 이벤트 관찰자 설정
+const scrollObserverOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5
+};
 
+const scrollObserverCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('scrolled');
+        } else {
+            entry.target.classList.remove('scrolled');
+        }
+    });
+};
 
+const scrollObserver = new IntersectionObserver(scrollObserverCallback, scrollObserverOptions);
+const scrollElements = document.querySelectorAll('.main_content1, .main_content3');
 
-    const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5
-    };
+scrollElements.forEach(element => {
+    scrollObserver.observe(element);
+});
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('scrolled');
-            } else {
-                entry.target.classList.remove('scrolled');
-            }
-        });
-    };
+// 비디오 재생 이벤트 관찰자 설정
+const videoObserverOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5
+};
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const mainContent1 = document.querySelector('.main_content1, .main_content3');
-    
-    if (mainContent1) {
-        observer.observe(mainContent1);
-    }
-    
+const videoObserverCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.play();
+        } else {
+            entry.target.pause();
+        }
+    });
+};
 
-    const images = [
-        'img/1 (1).png',
-        'img/1 (2).png',
-        'img/1 (3).png',
-        'img/1 (4).png',
-        'img/1 (5).png',
-        'img/1 (6).png',
-        'img/1 (7).png',
-        'img/1 (8).png'
-    ];
-    
-    function getRandomImage() {
-        const randomIndex = Math.floor(Math.random() * images.length);
-        return images[randomIndex];
-    }
-    
-    function getRandomSize() {
-        return Math.floor(Math.random() * 150) + 50; // 50px ~ 350px 사이의 크기
-    }
-    
+const videoObserver = new IntersectionObserver(videoObserverCallback, videoObserverOptions);
+const videoElements = document.querySelectorAll('video');
 
-    const imageCreationProbability = 0.18;
+videoElements.forEach(video => {
+    videoObserver.observe(video);
+});
 
-    function handleMouseMove(event) {
-        const cursorArea = document.querySelector('.web');
-        const header = document.querySelector('.header');
-        const mainText0 = document.querySelector('.main_text0');
-        
-        if (!cursorArea || !header || !mainText0) return;
-        
-        const headerRect = header.getBoundingClientRect();
-        const mainText0Rect = mainText0.getBoundingClientRect();
-        
-        if (event.clientY > headerRect.bottom && event.clientY < mainText0Rect.top) {
-            if (Math.random() < imageCreationProbability) {
-                const follower = document.createElement('img');
-                follower.src = getRandomImage();
-                follower.className = 'follower';
+const images = [
+    'img/1 (1).png',
+    'img/1 (2).png',
+    'img/1 (3).png',
+    'img/1 (4).png',
+    'img/1 (5).png',
+    'img/1 (6).png',
+    'img/1 (7).png',
+    'img/1 (8).png'
+];
+
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+}
+
+function getRandomSize() {
+    return Math.floor(Math.random() * 150) + 50; // 50px ~ 350px 사이의 크기
+}
+const imageCreationProbability = 0.18;
+
+function handleMouseMove(event) {
+    const cursorArea = document.querySelector('.web');
+    const header = document.querySelector('.header');
+    const mainText0 = document.querySelector('.main_text0');
     
-                const size = getRandomSize();
-                follower.style.width = `${size}px`;
-                follower.style.height = `${size}px`;
-                follower.style.position = 'absolute';
-                follower.style.left = `${event.clientX - size / 2}px`;
-                follower.style.top = `${event.clientY - size / 2}px`;
-                follower.style.pointerEvents = 'none';
+    if (!cursorArea || !header || !mainText0) return;
     
-                document.body.appendChild(follower);
+    const headerRect = header.getBoundingClientRect();
+    const mainText0Rect = mainText0.getBoundingClientRect();
     
-                setTimeout(() => {
-                    follower.remove();
-                }, 900);
-            }
+    if (event.clientY > headerRect.bottom && event.clientY < mainText0Rect.top) {
+        if (Math.random() < imageCreationProbability) {
+            const follower = document.createElement('img');
+            follower.src = getRandomImage();
+            follower.className = 'follower';
+
+            const size = getRandomSize();
+            follower.style.width = `${size}px`;
+            follower.style.height = `${size}px`;
+            follower.style.position = 'absolute';
+            follower.style.left = `${event.clientX - size / 2}px`;
+            follower.style.top = `${event.clientY - size / 2}px`;
+            follower.style.pointerEvents = 'none';
+
+            document.body.appendChild(follower);
+
+            setTimeout(() => {
+                follower.remove();
+            }, 900);
         }
     }
+}
+document.addEventListener('mousemove', handleMouseMove);    
 
-    document.addEventListener('mousemove', handleMouseMove);    
-    // 영상 끝나면 박스 형태 보이도록
-    document.addEventListener('DOMContentLoaded', function () {
-        var video = document.querySelector('.myVideo');
-        var imageBoxes = document.querySelector('.image-boxes');
-        var videoContainer = document.querySelector('.video-container');
-        
-        video.onended = function () {
-        videoContainer.style.display = 'none';
-        imageBoxes.classList.remove('hidden');
-        };
-        });
-
+   // 인풋 이벤트 핸들러
 document.addEventListener("DOMContentLoaded", () => {
-    // 이미 적용된 이벤트 핸들러들입니다.
     $(".input-placeholder").on("click keyup", function(event) {
         if (event.type === "click" || event.key === "Enter") {
             $(this).prev().removeClass("hide").trigger("focus").next().remove();
@@ -124,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -178,50 +186,22 @@ document.querySelectorAll('.accordion-button').forEach(button => {
     });
 });
 
-// Intersection Observer 설정
-const videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const video = entry.target.querySelector('video');
-        if (entry.isIntersecting) {
-            video.play();
-        } else {
-            video.pause();
-        }
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('instagramForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 폼 제출 방지
+
+        // 알림 표시
+        var notification = document.getElementById('notification');
+        notification.innerText = '폼이 성공적으로 제출되었습니다!';
+        notification.style.display = 'block';
+
+        // 5초 후에 알림 숨기기
+        setTimeout(function() {
+            notification.style.display = 'none';
+        }, 5000);
     });
-}, {
-    threshold: 0.5 // 요소의 50%가 보일 때 트리거
 });
-const mainContent3 = document.querySelector('.main_content3');
-if (mainContent3) {
-    videoObserver.observe(mainContent3);
-const fullscreenBtn = mainContent3.querySelector('.fullscreen-btn');
-    const video = mainContent3.querySelector('video');
-    
-    fullscreenBtn.addEventListener('click', () => {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        } else if (video.mozRequestFullScreen) { // Firefox
-            video.mozRequestFullScreen();
-        } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
-            video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) { // IE/Edge
-            video.msRequestFullscreen();
-        }
-    });
-}
 
-document.getElementById('instagramForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // 폼 제출 방지
-
-    // 여기서 폼 데이터를 처리합니다. 예를 들어, 서버로 데이터를 보낼 수 있습니다.
-    // ...
-
-    // 알림 표시
-    var notification = document.getElementById('notification');
-    notification.style.display = 'block';
-
-    // 3초 후에 알림 숨기기
-    setTimeout(function() {
-        notification.style.display = 'none';
-    }, 5000);
-});//인스타 폼 처럼 보내기
