@@ -35,7 +35,7 @@
 body {
     font-size: clamp(var(--font-min), 2vw, var(--font-max)); /* 반응형 폰트 크기 설정 */
     font-family: 'Pretendard', Arial, sans-serif;
-    background-color: #050505;
+    background-color:   #000000;
     color: #fff;
     overflow-x: hidden;
     margin: 0;
@@ -581,7 +581,7 @@ input[class="check"]:checked + label {
     padding: 50px;
     position: fixed;
     bottom: 550px;
-    right: 188px;
+    right: 590px;
     font-size: 24px;
     font-family: "Pretendard";
     z-index: 1000;
